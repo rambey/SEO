@@ -1,0 +1,40 @@
+       <meta itemprop="sku" content="{$product.reference}">
+                    <meta itemprop="brand" content="{if !empty(Manufacturer::getnamebyid($product.id_manufacturer))}{Manufacturer::getnamebyid($product.id_manufacturer)}{else}{Configuration::get('PS_SHOP_NAME')}{/if}">
+                    <meta itemprop="description" content="{$product.description|escape:'html':'UTF-8'}">
+                    
+                     <meta itemprop="mpn" content="{$product.id_supplier}" />
+                    <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+                            <meta itemprop="ratingValue" content="2" />
+                            <meta itemprop="bestRating" content="5" />
+                            <meta itemprop="worstRating" content="1" />
+                            <meta itemprop="reviewCount" content="3" />
+                    </div>
+                    <div itemprop="review" itemscope itemtype="http://schema.org/Review" >
+                                <div itemprop="author"  itemscope itemtype="http://schema.org/Person">
+                                  <meta itemprop="name" content="1" />
+                                </div>
+                                <div itemprop="reviewRating"  itemscope itemtype="http://schema.org/Rating">
+                                  <meta itemprop="ratingValue" content="1" />
+                                  <meta itemprop="bestRating" content="5" />
+                                </div>
+                    </div>
+
+
+_______________________________________________________________________________
+
+ <meta itemprop="url" content="{$product.url}"> 
+        <meta itemprop="priceValidUntil" content="{($smarty.now+(60*60*24*8))|date_format:"%Y-%m-%d"}" />
+        <link itemprop="availability" href="{$product.seo_availability}"/>
+        <meta itemprop="priceCurrency" content="{$currency.iso_code}">
+
+_____________________________________________________________________________________
+
+
+<meta itemprop="image" content="{$product.cover.large.url}" />
+                    <div itemprop="offers" itemtype="http://schema.org/Offer" itemscope>
+                        <meta itemprop="url" content="{$product.url}" />
+                        <meta itemprop="availability" content="https://schema.org/InStock" />
+                        <meta itemprop="itemCondition" content="https://schema.org/UsedCondition" />
+                        <meta itemprop="priceCurrency" content="{Currency::getDefaultCurrency()->iso_code}" />
+                        <meta itemprop="price" content="{$product.price_amount}" />
+                        <meta itemprop="priceValidUntil" content="{($smarty.now+(60*60*24*8))|date_format:"%Y-%m-%d"}" />

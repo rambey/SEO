@@ -1,0 +1,42 @@
+public function getTemplateVarPage()
+    {
+        $page = parent::getTemplateVarPage();
+
+        if (isset($this->cms->id)) {
+            $page['canonical'] = $this->context->link->getCMSLink($this->cms, $this->cms->link_rewrite, $this->ssl);
+        } elseif ($this->cms_category->id) {
+            $page['canonical'] = $this->context->link->getCMSCategoryLink($this->cms_category, $this->cms_category->link_rewrite);
+        }
+
+        return $page;
+    }
+
+
+______________________________________________________________________
+
+
+	 public function getTemplateVarPage()
+    {   
+        $page = parent::getTemplateVarPage();
+        $page['canonical'] = $this->context->link->getPageLink('contact');
+        
+        return $page;
+    }
+______________________________________________________________________
+
+ public function getTemplateVarPage()
+    {
+        $page = parent::getTemplateVarPage();
+        $page['canonical'] = $this->context->link->getPageLink('stores');
+        return $page;
+    }
+______________________________________________________________________
+
+
+ public function getTemplateVarPage()
+    {
+        
+        $page = parent::getTemplateVarPage();
+        $page['canonical'] = $this->context->link->getPageLink('authentication');;
+        return $page;
+    }
